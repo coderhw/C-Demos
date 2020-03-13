@@ -12,16 +12,22 @@ typedef int ElemType;
 typedef double  ElemType1;
 
 
-//定义一个节点
+/*单链表的结构*/
 typedef struct Node
 {
     ElemType data;       //这里默认的是int型，如需其他类型可修改
-    struct Node *next;   //指向Node型变量的指针
+    struct Node *next;   //指向下一个Node型变量的指针
 } LNode;
 
 
-
-
+/*双向链表的机构*/
+typedef struct List {
+    
+    ElemType data;      //数据域
+    struct List *next;  //指向下一个节点
+    struct List *front; //指向上一个节点
+    
+} DNode;
 
 LNode *create_linkList_head(void);
 void printLNode(LNode *node);
@@ -50,14 +56,21 @@ int main(int argc, const char * argv[]) {
 //        printLNode(node1);
 
         //删除某个结点的值
-        
-        deleteNode(node1, 2);
-        printLNode(node1);
+//        deleteNode(node1, 2);
+//        printLNode(node1);
 
+        
+//********************************************************************************************************************************//
+        
+        
+        
+        
+        
     }
     return 0;
 }
 
+#pragma mark - 单向链表
 //创建一个单链表 动态分配空间   从头节点插入
 //先让P指向头节点的后驱，然后让头节点指向P
 LNode *create_linkList_head(void)
@@ -154,7 +167,18 @@ void deleteNode(LNode *L, int n){
 }
 
 
-
+//合并两个有序链表
+LNode *mergeLinkList(LNode *La, LNode *Lb)
+{
+    LNode *LC, *pa, *pb, *pc, *ptr;
+    LC = La;
+    pc = La;
+    pa = La->next;
+    pb = Lb->next;
+    
+    
+    
+}
 
 //打印链表
 void printLNode(LNode *L)
@@ -167,3 +191,7 @@ void printLNode(LNode *L)
 
     }
 }
+
+#pragma mark - 双向链表
+
+
