@@ -18,6 +18,14 @@ void swap (int arr[], int low, int high)
     arr[high] = temp;
 }
 
+
+//快速排序思路: 挖坑+分治
+/*
+ * 从后往前遍历并且与base基准数进行比较， 如果比基准数大则位置不变，小的话则两者交换位置
+ * 从前往后遍历并且与基准数进行比较，如果小于基准数则位置不变，大于的话则与基准数交换位置
+ *
+ * 最后就是 不断将数字与基准数进行比较，大的在基准数右边，小的在基准数左边。 递归
+ */
 int partition(int arr[], int low, int high)
 {
     int base = arr[low];
@@ -26,11 +34,15 @@ int partition(int arr[], int low, int high)
         while (low < high && arr[high] >= base) {
             high--;
         }
+        
+        //将小于基准数的值与基准数交换位置，保证基准数的左边的数都小于基准数
         swap(arr, low, high);
         
         while (low < high && arr[low] <= base) {
             low++;
         }
+        
+        //将大于基准数的值与基准数交换位置，保证基准数的右边的数都大于基准数
         swap(arr, low, high);
     }
     return low;
@@ -49,7 +61,7 @@ void quickSort(int arr[], int low, int high)
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
        
-        int arr[6] = {10, 1, 8 ,7 ,6 ,5};
+        int arr[6] = {7, 6, 8 ,9 ,2 ,4};
         int i = 0;
         quickSort(arr, 0, 5);
         
