@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 typedef int ElemType;
-typedef double  ElemType1;
 
 
 /*单链表的结构*/
@@ -168,17 +167,17 @@ void deleteNode(LNode *L, int n){
 
 
 //合并两个有序链表
-LNode *mergeLinkList(LNode *La, LNode *Lb)
-{
-    LNode *LC, *pa, *pb, *pc, *ptr;
-    LC = La;
-    pc = La;
-    pa = La->next;
-    pb = Lb->next;
-    
-    
-    
-}
+//LNode *mergeLinkList(LNode *La, LNode *Lb)
+//{
+//    LNode *LC, *pa, *pb, *pc, *ptr;
+//    LC = La;
+//    pc = La;
+//    pa = La->next;
+//    pb = Lb->next;
+//    
+//    
+//    
+//}
 
 //打印链表
 void printLNode(LNode *L)
